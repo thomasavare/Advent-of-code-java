@@ -3,7 +3,7 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 public class Day1_1 {
-    final static String fileName = "src/input-aoc-1.txt";
+    final static String fileName = "inputs/input-aoc-1.txt";
 
     static ArrayList<Integer> left = new ArrayList<Integer>();
     static ArrayList<Integer> right = new ArrayList<Integer>();
@@ -16,7 +16,7 @@ public class Day1_1 {
         String text = ReadFile.readfile(fileName);
         parseInput(text);
         int d = Distance(left, right);
-        System.out.println(d == 2367773);
+        System.out.println("Total distance: "+ d);
     }
 
     public static void parseInput(String text) {
