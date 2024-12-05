@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.PriorityQueue;
 import java.util.Collections;
 import java.util.Iterator;
 
@@ -6,7 +7,7 @@ public class Day1_2 {
     final static String fileName = "src/input-aoc-1.txt";
 
     static ArrayList<Integer> left = new ArrayList<Integer>();
-    static ArrayList<Integer> right = new ArrayList<Integer>();
+    static PriorityQueue<Integer> right = new PriorityQueue<Integer>();
 
     public static void main(String[] args) {
         Day1_2.run(fileName);
@@ -28,9 +29,9 @@ public class Day1_2 {
         }
     }
 
-    public static int Distance(ArrayList<Integer> left, ArrayList<Integer> right) {
+    public static int Distance(ArrayList<Integer> left, PriorityQueue<Integer> right) {
         Collections.sort(left);
-        Collections.sort(right);
+//        Collections.sort(right);
         Iterator<Integer> literator = left.iterator();
         Iterator<Integer> riterator = right.iterator();
 
@@ -39,6 +40,7 @@ public class Day1_2 {
         while (literator.hasNext() && riterator.hasNext()) {
             int v1 = literator.next();
             int v2 = riterator.next();
+            System.out.println(v1 + " " + v2);
             distance += Math.abs(v1 - v2);
         }
         return distance;
