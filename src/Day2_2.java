@@ -1,41 +1,43 @@
 import java.util.ArrayList;
 
-public class Day2_1 {
+public class Day2_2 {
     final static String fileName = "inputs/input-aoc-2-1.txt";
 
     static ArrayList<ArrayList<Integer>> levels = new ArrayList<>();
 
     public static void main(String[] args) {
-        Day2_1.run();
+        Day2_2.run();
     }
 
     static void run() {
-
-        String text = ReadFile.readFile(Day2_1.fileName);
+        String text = ReadFile.readFile(Day2_2.fileName);
         parseInput(text);
         int count = 0;
         for (ArrayList<Integer> level : levels) {
-            System.out.println(level);
-            boolean safe = isSafe(level);
-            System.out.println(safe + "\n");
-            count += safe ? 1 : 0;
+            for (int i = 0; i < level.size(); i++) {
+                ArrayList<Integer> tmp = (ArrayList<Integer>)level.clone();
+                tmp.remove(i);
+                if (isSafe(tmp)) {
+                    count++;
+                    break;
+                }
+            }
         }
-        System.out.println(count);
+        System.out.println("Safe reports: " + count + "\n");
     }
 
     static void parseInput(String text) {
         String[] lines = text.split("\n");
         for (String line : lines) {
             ArrayList<Integer> tmp = new ArrayList<>();
-            for (String s : line.split("\\s+")) {
-                tmp.add(Integer.parseInt(s)); // Alternative: isSafe(tmp) here to count
+            for (String s : line.split(" ")) {
+                tmp.add(Integer.parseInt(s)); // Alternative: isSafe(tmp) here
             }
             levels.add(tmp);
         }
     }
 
     static boolean isSafe(ArrayList<Integer> level) {
-        boolean safe = true;
         boolean increasing = true;
         boolean decreasing = true;
         boolean delta = true;
@@ -51,11 +53,7 @@ public class Day2_1 {
                 delta = false;
             }
         }
-        System.out.println("Increasing: " + increasing + ", decreasing: " + decreasing + ", delta: " + delta);
         return (increasing || decreasing) && delta;
     }
 
-    public static boolean increasing(Integer prec, Integer next) {
-            return true;
-        }
 }
