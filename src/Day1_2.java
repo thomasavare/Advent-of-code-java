@@ -12,7 +12,7 @@ public class Day1_2 {
     }
 
     public static void run(String fileName) {
-        String text = ReadFile.readfile(fileName);
+        String text = ReadFile.readFile(fileName);
         parseInput(text);
         int d = similarityScore(left, right);
         System.out.println(d);
