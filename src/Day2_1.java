@@ -35,7 +35,6 @@ public class Day2_1 {
     }
 
     static boolean isSafe(ArrayList<Integer> level) {
-        boolean safe = true;
         boolean increasing = true;
         boolean decreasing = true;
         boolean delta = true;
@@ -54,8 +53,4 @@ public class Day2_1 {
         System.out.println("Increasing: " + increasing + ", decreasing: " + decreasing + ", delta: " + delta);
         return (increasing || decreasing) && delta;
     }
-
-    public static boolean increasing(Integer prec, Integer next) {
-            return true;
-        }
 }

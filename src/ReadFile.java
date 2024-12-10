@@ -13,7 +13,7 @@ public class ReadFile {
             }
             myReader.close();
         } catch (FileNotFoundException e) {
-            System.err.println("An error occurred., verify file name.");
+            System.err.println("An error occurred, verify file name.");
             e.printStackTrace();
         }
         return content.toString();

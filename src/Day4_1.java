@@ -13,9 +13,9 @@ public class Day4_1 {
         CharMatrix cmatrix = new CharMatrix(content);
         int hor = horizontal(cmatrix);
         int ver = vertical(cmatrix);
-        int diag1 = diagonal(cmatrix);
+        int diag1 = diagonal();
         cmatrix.flipMatrix();
-        int diag2 = diagonal(cmatrix);
+        int diag2 = diagonal();
         System.out.println("rows: " + CharMatrix.rows + ", cols: " + CharMatrix.cols);
         System.out.println("Horizontal: " + hor);
         System.out.println("Vertical: " + ver);
@@ -41,21 +41,13 @@ public class Day4_1 {
     }
 
     public static int vertical(CharMatrix cmatrix) {
-        System.err.println("before transpose");
-        System.err.println(cmatrix.toString());
         cmatrix.transpose();
-        System.err.println("after transpose");
-        System.err.println(cmatrix.toString());
         int count = horizontal(cmatrix);
-        System.err.println("before 2 transpose and after horizontal");
-        System.err.println(cmatrix.toString());
         cmatrix.transpose();
-        System.err.println("after 2 transpose");
-        System.err.println(cmatrix.toString());
         return count;
     }
 
-    public static int diagonal(CharMatrix cmatrix) {
+    public static int diagonal() {
         int count = 0;
         for (int i = -CharMatrix.rows; i < CharMatrix.cols + 1; i++) {
             char[] subDiag = CharMatrix.getSubDiag(i);
@@ -67,9 +59,7 @@ public class Day4_1 {
                     count++;
                 }
             }
-            System.err.println(", count: " + count);
         }
-
         return count;
     }
 
