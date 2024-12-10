@@ -78,6 +78,7 @@ public class Day4_1 {
         for (int k = 0; k < 4; k++) {
             if (array[begin + k] != match[k]) {
                 isMatch = false;
+                break;
             }
         }
         return isMatch;
