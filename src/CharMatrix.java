@@ -1,13 +1,7 @@
-import java.util.Arrays;
-
 public class CharMatrix {
     static char[][] cmatrix;
     static int rows;
     static int cols;
-
-    public CharMatrix(char[][] matrix) {
-        cmatrix = matrix;
-    }
 
     public CharMatrix(String text) {
         String[] tMat = text.split("\n");
@@ -46,14 +40,6 @@ public class CharMatrix {
         return cmatrix[row];
     }
 
-    public char[] getCol(int col) {
-        char[] column = new char[cols];
-        for (int i = 0; i < cols; i++) {
-            column[i] = cmatrix[i][col];
-        }
-        return column;
-    }
-
     public static char[] getSubDiag(int rank) {
         int startRow;
         int startCol;
@@ -66,8 +52,6 @@ public class CharMatrix {
             startCol = 0;
         }
 
-        System.err.print("rank: " + rank + ", startRow: " + startRow + ", startCol: " + startCol);
-        
         char[] diag = new char[rows - Math.abs(rank) + 4];
 
         for (int i = 0; startRow < rows && startCol < cols; i++) {
@@ -75,7 +59,6 @@ public class CharMatrix {
             startRow++;
             startCol++;
         }
-//        System.err.print(", diag: " + Arrays.toString(diag));
         return diag;
     }
 
