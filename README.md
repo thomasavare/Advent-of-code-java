@@ -25,4 +25,7 @@ This repo only includes Java for now but it will soon change to add different la
 - Day 5: Not done
 - Day 6: Not done
 - Day 7:
-  - Part 1: Utilisation of ```BigInteger``` and ```Queues```, more data formating when reading input file.
+  - Part 1: Construction of Tree with a custom class, Utilisation of ```long``` and ```ArrayDeque```, more data formating when reading input file.
+  - Part 1: (extra): same problem but with operation priority issues solved using Arrays when constructing the tree (I did it because I can't read an exercise apparently).
+  - Part 2: Same thing globally because there are no priorities between the operations so it's straightforward.
+  - To add: prettty print of the trees for better visualization.
