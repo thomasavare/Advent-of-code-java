@@ -20,12 +20,23 @@ This repo only includes Java for now but it will soon change to add different la
   - Part 1: String manipulations and comparisons using ```Pattern``` and ```Matcher``` Classes
   - Part 2: More complex regex matching
 - Day 4:
-  - Part 1: Creation of own Character Matrix Class ```CharMat``` for simple manipulations. (could have used regex matching)
+  - Part 1: Creation of own Character Matrix Class ```CharMat``` for simple manipulations. (could have used regex 
+  matching)
   - Part 2: Utilisation of Marix class, applying a kernel filter to extract the number of pattern maching of the kernel.
 - Day 5: Not done
 - Day 6: Not done
 - Day 7:
-  - Part 1: Construction of Tree with a custom class, Utilisation of ```long``` and ```ArrayDeque```, more data formating when reading input file.
-  - Part 1: (extra): same problem but with operation priority issues solved using Arrays when constructing the tree (I did it because I can't read an exercise apparently).
-  - Part 2: Same thing globally because there are no priorities between the operations so it's straightforward.
-  - To add: prettty print of the trees for better visualization.
+  - Part 1: Construction of Tree with a custom class, Utilisation of ```long``` and ```ArrayDeque```, more data 
+  formating when reading input file.
+    - Part 1: (extra): same problem but with operation priority issues solved using Arrays when constructing the tree 
+    (I did it because I can't properly read an exercise apparently). Alot of debugging using the IDE debugger made it 
+    interesting.
+    - Part 2: Same thing globally because there are no priorities between the operations so it's straightforward.
+    - To add: prettty print of the trees for better visualization when analyzing what is happening,
+- Day 8: Meh
+- Day 9: Meh
+- Day 10: Fun way: implement graph class and explore algorithm or search algorithm. you can represent everything with a 
+directed graph and search more effectively.
+  - More effective: you don't actually need the graphs, it's just fun, construct trailheads iteratively with stack or 
+  recursively.
+- 
