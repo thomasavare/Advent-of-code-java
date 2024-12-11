@@ -1,8 +1,10 @@
+import org.w3c.dom.Node;
+
 import java.util.ArrayDeque;
 import java.util.Arrays;
 
-public class Day7_1 {
-    static String fileName = "inputs/test-7-1.txt";
+public class Day7_2 {
+    static String fileName = "inputs/input-aoc-7-1.txt";
 
     public static void main(String[] args) {
         run();
@@ -18,7 +20,7 @@ public class Day7_1 {
         long count = 0;
         for (String line : lines) {
             String[] tmp = line.split(":\\s+");
-//            System.err.println(tmp[0] + " : " + tmp[1]);
+    //            System.err.println(tmp[0] + " : " + tmp[1]);
             long result = Long.parseLong(tmp[0]);
             long[] intArray = stringToLongArray(tmp[1]);
             if (TreeSearch(intArray, result)) {
@@ -33,13 +35,13 @@ public class Day7_1 {
     }
 
     public static boolean TreeSearch(long[] input, long result) {
-        Node71 root = new Node71(input[0]);
-        ArrayDeque<Node71> stack = new ArrayDeque<>();
+        Node72 root = new Node72(input[0]);
+        ArrayDeque<Node72> stack = new ArrayDeque<>();
         stack.push(root);
 
         int i = -1;
         while (!stack.isEmpty()) {
-            Node71 node = stack.pop();
+            Node72 node = stack.pop();
             i = node.depth;
 
             if (node.depth <= input.length - 1) {
@@ -49,10 +51,17 @@ public class Day7_1 {
                 node.mult = node.insertMult(input[node.depth]);
                 stack.push(node.mult);
 
+                node.merge = node.insertMerge(input[node.depth]);
+                stack.push(node.merge);
+            }
+            if (node.depth == input.length - 1) {
+                if (node.add.value == result) {
+                    return true;
+                }
                 if (node.mult.value == result) {
                     return true;
                 }
-                if (node.add.value == result) {
+                if (node.merge.value == result) {
                     return true;
                 }
             }

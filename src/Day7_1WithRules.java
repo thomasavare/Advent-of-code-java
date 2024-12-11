@@ -1,7 +1,7 @@
 import java.util.ArrayDeque;
 import java.util.Arrays;
 
-public class Day7_1 {
+public class Day7_1WithRules {
     static String fileName = "inputs/test-7-1.txt";
 
     public static void main(String[] args) {
@@ -33,26 +33,26 @@ public class Day7_1 {
     }
 
     public static boolean TreeSearch(long[] input, long result) {
-        Node71 root = new Node71(input[0]);
-        ArrayDeque<Node71> stack = new ArrayDeque<>();
+        Node71WithRules root = new Node71WithRules(input[0]);
+        ArrayDeque<Node71WithRules> stack = new ArrayDeque<>();
         stack.push(root);
 
         int i = -1;
         while (!stack.isEmpty()) {
-            Node71 node = stack.pop();
+            Node71WithRules node = stack.pop();
             i = node.depth;
 
             if (node.depth <= input.length - 1) {
-                node.add = node.insertAdd(input[node.depth]);
-                stack.push(node.add);
+                node.addChild = node.insertAdd(input[node.depth]);
+                stack.push(node.addChild);
 
-                node.mult = node.insertMult(input[node.depth]);
-                stack.push(node.mult);
+                node.multChild = node.insertMult(input[node.depth]);
+                stack.push(node.multChild);
 
-                if (node.mult.value == result) {
+                if (node.addChild.getSum() == result) {
                     return true;
                 }
-                if (node.add.value == result) {
+                if (node.multChild.getSum() == result) {
                     return true;
                 }
             }
